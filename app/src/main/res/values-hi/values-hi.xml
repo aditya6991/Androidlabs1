@@ -1,11 +1,29 @@
+
 <resources>
-    <string name="app_name">Android Labs</string>
-    <string name="hello_message">qaaqa</string>
-    <string name="ButtonText">bonjour</string>
+    <string name="app_name">AndroidLabs</string>
+    <string name="hello_message">Hello World</string>
+    <string name="ButtonText">I\'m a button</string>
     <string name="text1">Look at my GUI</string>
     <string name="button1">Click here</string>
     <string name="check1">Check this out!</string>
     <string name="switch1">Switch on/off</string>
     <string name="edit1">Type here</string>
+
+    <string name="look"> apna email dle </string>
+    <string name="ClickHere"> andr </string>
+    <string name="checkbox"> ye dekhe!!</string>
+    <string name="flags"> </string>
+    <string name="Switch"> Switch On/Off </string>
+    <string name="edittext">apna email dle</string>
+    <string name="edittext1"> apna password dle</string>
+    <string name="textView3">apna password dle </string>
+    <string name="textView0">apki profile</string>
+    <string name="yourName" > naam:</string>
+    <string name="EnterYourName">apna naam likhe</string>
+    <string name="EnterYourEmail">apna email likhe</string>
+    <string name="YourEmail">apka email:</string>
+    <string name="YourPic">apiki picture:</string>
+    <string name="Image"> </string>
+    <string name="lastText"> button dabai</string>
 
 </resources>

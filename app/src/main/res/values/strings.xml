@@ -7,5 +7,21 @@
     <string name="check1">Check this out!</string>
     <string name="switch1">Switch on/off</string>
     <string name="edit1">Type here</string>
+    <string name="look"> Enter you email address </string>
+    <string name="ClickHere"> Login </string>
+    <string name="checkbox"> Check this out!!</string>
+    <string name="flags"> </string>
+    <string name="Switch"> Switch On/Off </string>
+    <string name="edittext">Type email here</string>
+    <string name="edittext1"> Type your password </string>
+    <string name="textView3">Type your password </string>
+    <string name="textView0">Your Profile</string>
+    <string name="yourName" > Your Name:</string>
+    <string name="EnterYourName">Enter Your Name</string>
+    <string name="EnterYourEmail">Enter your Email</string>
+    <string name="YourEmail">Your Email:</string>
+    <string name="YourPic">Your Picture:</string>
+    <string name="Image"> </string>
+    <string name="lastText"> Click the button above to take picture</string>
 
 </resources>
