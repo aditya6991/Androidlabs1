@@ -23,5 +23,10 @@
     <string name="YourPic">Your Picture:</string>
     <string name="Image"> </string>
     <string name="lastText"> Click the button above to take picture</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="hint_message">Type here</string>
+    <string name="go_to_chat">Go to chat</string>
+
 
 </resources>

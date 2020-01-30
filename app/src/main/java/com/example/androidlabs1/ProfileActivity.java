@@ -1,21 +1,17 @@
 package com.example.androidlabs1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-
-import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 
@@ -29,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
+        Log.e(ACTIVITY_NAME, " in function: " + "onCreate");
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main_relative);
         //setContentView(R.layout.activity_main_grid);
@@ -38,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity{
         Intent intent = getIntent();
         String email = intent.getStringExtra("email");
         mImageButton = findViewById(R.id.imageButton);
-
+        Button chatButton = findViewById(R.id.buttonChat);
 
         EditText enteremail = findViewById(R.id.EnterYourEmail);
         enteremail.setText(email);
@@ -53,7 +49,13 @@ public class ProfileActivity extends AppCompatActivity{
             }
         });
 
-
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent chatActivity = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                startActivity(chatActivity);
+            }
+        });
 
 
     }
@@ -113,6 +115,5 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
 
-    public void sendMessage(View view) {
-    }
+
 }

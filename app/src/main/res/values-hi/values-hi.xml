@@ -25,5 +25,9 @@
     <string name="YourPic">apiki picture:</string>
     <string name="Image"> </string>
     <string name="lastText"> button dabai</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="hint_message">Type here</string>
+    <string name="go_to_chat">Go to chat</string>
 
 </resources>
