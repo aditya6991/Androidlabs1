@@ -1,78 +1,67 @@
 package com.example.androidlabs1;
 
-
 import android.app.Activity;
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ChatAdapter extends BaseAdapter {
+    private Context mContext;
+    private ArrayList<Message> mMessages;
 
-    ArrayList<Message> chats ;
-    Activity context;
+    public ChatAdapter(Context context, ArrayList<Message> messages) {
+        super();
+        this.mContext = context;
+        this.mMessages = messages;
 
-    public ChatAdapter(ArrayList<Message> otherMessages, Activity ctx){
-        chats = otherMessages;
-        context = ctx;
     }
 
-    public void add(Message message){
-        this.chats.add(message);
-        //notifyDataSetChanged();
-    }
 
     @Override
     public int getCount() {
-        return chats.size();
+        return mMessages.size();
     }
 
     @Override
-    public Message getItem(int i) {
-        return chats.get(i);
+    public Message getItem(int position) {
+        return mMessages.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return getItem(i).getId();
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        MessageViewHolder holder = new MessageViewHolder();
-        View newView;
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Message message = this.getItem(position);
+        ViewHolder holder;
+        holder = new ViewHolder();
 
-        LayoutInflater messageInflater = context.getLayoutInflater();//(LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        Message message = getItem(i); //chats.get(i);
-
-
-        if (message.getChatType()) {
-            newView = messageInflater.inflate(R.layout.chat_row_send, null);
-            holder.chatMsg = (TextView) newView.findViewById(R.id.chatContent);
-            newView.setTag(holder);
-            holder.chatMsg.setText(message.getChatMessage());
+        if (message.isMine) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_row_send, parent, false);
+            holder.message = convertView.findViewById(R.id.sendMessageText);
         } else {
-            newView = messageInflater.inflate(R.layout.chat_row_receive, null);
-            holder.chatMsg = (TextView) newView.findViewById(R.id.chatContent);
-            newView.setTag(holder);
-            holder.chatMsg.setText(message.getChatMessage());
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_row_receive, parent, false);
+            holder.message = convertView.findViewById(R.id.receiveMessageText);
+
         }
 
-        return newView;
+
+        convertView.setTag(holder);
+        holder.message.setText(message.getMessage());
+        return convertView;
+
+
     }
 
-    private class MessageViewHolder{
-        public TextView chatMsg;
+    private static class ViewHolder {
+        TextView message;
     }
 }
 
-//class MessageViewHolder{
-//    //public View avatar;
-//    public TextView chatMsg;
-//}

@@ -1,56 +1,45 @@
 package com.example.androidlabs1;
 
 public class Message {
-//    enum ChatType {
-//        SEND,
-//        RECEIVE
-//    }
+    /**
+     * The content of the message
+     */
+    String message;
 
-    protected long id;
 
-    private String chatMessage;
+    /**
+     * boolean to determine, who is sender of this message
+     */
+    boolean isMine;
 
-    private Boolean isSent;
 
-//    public ChatType chatType;
+    /**
+     * Constructor to make a Message object
+     */
+    public Message(String message, boolean isMine) {
+        super();
+        this.message = message;
+        this.isMine = isMine;
 
-    /** Constructor */
-//    public Message(String text, ChatType chat, long i){
-//        this.chatMessage = text;
-//        this.chatType = chat;
-//        this.id = i;
-//    }
-
-    Message(String text, Boolean chatType, long i){
-        this.chatMessage = text;
-        this.isSent = chatType;
-        this.id = i;
     }
 
-//    public void update(String text, ChatType chat){
-//        chatMessage = text;
-//        chatType = chat;
-//    }
 
-    public void update(String text, Boolean chatType){
-        chatMessage = text;
-        isSent = chatType;
+
+    public String getMessage() {
+        return message;
     }
 
-    /** Chaining Constructor */
-//    public Message(String text, ChatType chat){ this(text, chat, 0); }
-
-    public Message(String text, Boolean chatType){ this(text, chatType, 0); }
-
-    String getChatMessage(){
-        return chatMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    Boolean getChatType(){
-        return isSent;
+    public boolean isMine() {
+        return isMine;
     }
 
-    public long getId() { return id; }
+    public void setMine(boolean isMine) {
+        this.isMine = isMine;
+    }
 
 
 }
