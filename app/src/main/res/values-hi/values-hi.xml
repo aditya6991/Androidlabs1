@@ -25,9 +25,9 @@
     <string name="YourPic">apiki picture:</string>
     <string name="Image"> </string>
     <string name="lastText"> button dabai</string>
-    <string name="goToChatButtonText">Go to chat</string>
-    <string name="sendButton">Send</string>
-    <string name="receiveButton">Receive</string>
+    <string name="goToChatButtonText">chat pe jai</string>
+    <string name="sendButton">bhej diya</string>
+    <string name="receiveButton">mil gya</string>
     <string name="sendMessageText">q</string>
     <string name="receiveMessageText">q</string>
 
