@@ -1,5 +1,6 @@
 package com.example.androidlabs1;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -43,7 +44,7 @@ public class ChatAdapter extends BaseAdapter {
         ViewHolder holder;
         holder = new ViewHolder();
 
-        if (message.isMine) {
+        if (message.isSent) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_row_send, parent, false);
             holder.message = convertView.findViewById(R.id.sendMessageText);
         } else {
@@ -64,4 +65,3 @@ public class ChatAdapter extends BaseAdapter {
         TextView message;
     }
 }
-
