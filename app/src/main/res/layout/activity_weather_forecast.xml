@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.androidlabs1.WeatherForecast">
 
     <ImageView
-        android:id="@+id/weatherImageView"
+        android:id="@+id/weatherImage"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-
-        />
+        android:paddingBottom="20dp"/>
 
     <TextView
-        android:id="@+id/currentTemperature"
+        android:id="@+id/currentTemp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/weatherImageView" />
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:layout_below="@id/currentTemperature"
-        android:id="@+id/minimumTemperature"
+        android:id="@+id/minTemp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:layout_below="@id/minimumTemperature"
-        android:id="@+id/maximumTemperature"
+        android:id="@+id/maxTemp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:layout_below="@id/maximumTemperature"
         android:id="@+id/uvRating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <ProgressBar
-        android:layout_below="@id/uvRating"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/status"
         android:visibility="invisible"
-        android:id="@+id/weatherProgress"
-        />
-</RelativeLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.androidlabs1.WeatherForecast">
+
+    <ImageView
+        android:id="@+id/weatherImageView"
+        android:layout_width="207dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+
+
+        />
+
+    <TextView
+        android:id="@+id/currentTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/weatherImageView"
+        android:layout_gravity="center" />
+    <TextView
+        android:layout_below="@id/currentTemperature"
+        android:id="@+id/minimumTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_below="@id/minimumTemperature"
+        android:id="@+id/maximumTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_below="@id/maximumTemperature"
+        android:id="@+id/uvRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <ProgressBar
+        android:layout_below="@id/uvRating"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/weatherProgress"
+
+        />
+</RelativeLayout>
