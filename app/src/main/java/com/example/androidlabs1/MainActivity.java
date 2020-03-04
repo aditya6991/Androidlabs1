@@ -2,6 +2,7 @@ package com.example.androidlabs1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 
 import android.os.Bundle;
 
+@SuppressLint("Registered")
 public class MainActivity extends AppCompatActivity {
     SharedPreferences prefs;
 

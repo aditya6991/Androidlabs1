@@ -29,5 +29,6 @@
     <string name="receiveButton">Receive</string>
 <string name="sendMessageText">q</string>
     <string name="receiveMessageText">q</string>
+    <string name="goToWeatherButtonText">Go to Weather Forecast</string>
 
 </resources>

@@ -88,5 +88,12 @@
         android:layout_below="@+id/lastText"
         android:text="@string/goToChatButtonText" />
 
+    <Button
+        android:id="@+id/profile_goToWeatherButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonChat"
+        android:text="@string/goToWeatherButtonText" />
+
 
 </RelativeLayout>

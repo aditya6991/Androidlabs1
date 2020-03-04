@@ -30,6 +30,6 @@
     <string name="receiveButton">mil gya</string>
     <string name="sendMessageText">q</string>
     <string name="receiveMessageText">q</string>
-
+    <string name="goToWeatherButtonText">yaha dekhe aj k mausam</string>
 
 </resources>

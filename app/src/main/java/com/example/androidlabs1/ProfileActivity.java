@@ -1,64 +1,106 @@
 package com.example.androidlabs1;
 
-import android.annotation.SuppressLint;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.widget.Button;
 
 
-@SuppressLint("Registered")
-public class ProfileActivity extends AppCompatActivity{
+public class ProfileActivity extends AppCompatActivity {
+    public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    public static final String ACTIVITY_NAME = "ProfileActivity";
-    private ImageButton mImageButton;
+    Intent priorActivity;
+    CharSequence email;
+    EditText emailField;
+    ImageButton mImageButton;
+    Button goToChatButton;
+    Button goToWeatherActivityButton;
 
-    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Log.e(ACTIVITY_NAME, " in function: " + "onCreate");
+        Log.e(ACTIVITY_NAME, "In Function onCreate");
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main_relative);
-        //setContentView(R.layout.activity_main_grid);
-        //setContentView(R.layout.activity_main_linear);
         setContentView(R.layout.profileactivity);
-        Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
+        priorActivity = getIntent();
+        email = priorActivity.getCharSequenceExtra("email");
+        emailField = findViewById(R.id.EnterYourEmail);
+        emailField.setText(email);
         mImageButton = findViewById(R.id.imageButton);
-        Button chatButton = findViewById(R.id.buttonChat);
-
-        EditText enteremail = findViewById(R.id.EnterYourEmail);
-        enteremail.setText(email);
-
-        final ImageButton button = findViewById(R.id.imageButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                dispatchTakePictureIntent();
-
-
-            }
-        });
-
-        chatButton.setOnClickListener(new View.OnClickListener() {
+        goToWeatherActivityButton = findViewById(R.id.profile_goToWeatherButton);
+        goToChatButton = findViewById(R.id.buttonChat);
+        mImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chatActivity = new Intent(ProfileActivity.this, ChatRoomActivity.class);
-                startActivity(chatActivity);
+                dispatchTakePictureIntent();
+            }
+        });
+        goToChatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startChatRoomActivity();
+
+
             }
         });
 
+        goToWeatherActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startWeatherForecastActivity();
+            }
+        });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(ACTIVITY_NAME, "In Function onResume()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.e(ACTIVITY_NAME, "In Function onDestroy()");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        Log.e(ACTIVITY_NAME, "In Function onStart()");
+        super.onStart();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.e(ACTIVITY_NAME, "In Function onPause()");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.e(ACTIVITY_NAME, "In Function onStop()");
+        super.onStop();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e(ACTIVITY_NAME, "In Function onActivityResult()");
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mImageButton.setImageBitmap(imageBitmap);
+        }
+    }
+
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -66,54 +108,15 @@ public class ProfileActivity extends AppCompatActivity{
         }
     }
 
-
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-        Log.i(ACTIVITY_NAME, "in onResume()");
+    public void startChatRoomActivity() {
+        Intent chatRoomActivity = new Intent(this, ChatRoomActivity.class);
+        startActivity(chatRoomActivity);
     }
 
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
-        Log.i(ACTIVITY_NAME, "in onStart()");
+    public void startWeatherForecastActivity() {
+        Intent weatherActivity = new Intent(this, WeatherForecast.class);
+        startActivity(weatherActivity);
     }
-
-    @Override
-    protected void onPause()
-    {
-        super.onPause();
-        Log.i(ACTIVITY_NAME, "in onPause()");
-    }
-
-    @Override
-    protected void onStop()
-    {
-        super.onStop();
-        Log.i(ACTIVITY_NAME, "in onStop()");
-    }
-
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        Log.i(ACTIVITY_NAME, "in onDestroy()");
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            assert extras != null;
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            //mageView mImageButton =null;
-            mImageButton.setImageBitmap(imageBitmap);
-        }
-    }
-
-
 
 }
+
