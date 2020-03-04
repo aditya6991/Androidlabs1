@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.database.DatabaseUtils;
 
+import com.example.androidlabs.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

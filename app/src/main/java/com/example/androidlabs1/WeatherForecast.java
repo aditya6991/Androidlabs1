@@ -2,6 +2,7 @@ package com.example.androidlabs1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.androidlabs.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +35,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+import static java.nio.charset.StandardCharsets.*;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
 
@@ -63,6 +68,7 @@ public class WeatherForecast extends AppCompatActivity {
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class ForecastQuery extends AsyncTask<String, Integer, String> {
 
         private String UV;
@@ -106,7 +112,6 @@ public class WeatherForecast extends AppCompatActivity {
                                 publishProgress(75);
                                 break;
                             case "speed":
-                                String wind = xpp.getAttributeValue(null, "value");
                                 break;
                             case "weather":
                                 iconName = xpp.getAttributeValue(null, "icon");
@@ -122,7 +127,7 @@ public class WeatherForecast extends AppCompatActivity {
                 Log.i("Searching for file", fileName);
                 if (fileExistence(fileName)) {
                     Log.i("Found file", fileName);
-                    FileInputStream fis = null;
+                    FileInputStream fis;
                     try {
                         fis = openFileInput(fileName);
                         outlookPic = BitmapFactory.decodeStream(fis);
@@ -156,11 +161,11 @@ public class WeatherForecast extends AppCompatActivity {
                 urlConnection = (HttpURLConnection) uvUrl.openConnection();
                 InputStream inStreamUv = urlConnection.getInputStream();
 
-                BufferedReader jsonReader = new BufferedReader(new InputStreamReader(inStreamUv, "UTF-8"), 8);
+                BufferedReader jsonReader = new BufferedReader(new InputStreamReader(inStreamUv, UTF_8), 8);
                 StringBuilder sb = new StringBuilder(100);
                 String line;
                 while ((line = jsonReader.readLine()) != null) {
-                    sb.append(line + "\n");
+                    sb.append(line).append("\n");
                 }
                 String result = sb.toString();
                 JSONObject jObj = new JSONObject(result);

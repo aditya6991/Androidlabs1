@@ -13,6 +13,8 @@ import android.widget.EditText;
 
 import android.os.Bundle;
 
+import com.example.androidlabs.R;
+
 @SuppressLint("Registered")
 public class MainActivity extends AppCompatActivity {
     SharedPreferences prefs;
