@@ -57,13 +57,13 @@ public class WeatherForecast extends AppCompatActivity {
         ForecastQuery theQuery = new ForecastQuery();
         theQuery.execute();
 
-        weatherIV = findViewById(R.id.weatherImageView);
-        currentTempTV = findViewById(R.id.currentTemperature);
-        minTempTV = findViewById(R.id.minimumTemperature);
-        maxTempTV = findViewById(R.id.maximumTemperature);
+        weatherIV = findViewById(R.id.weatherImage);
+        currentTempTV = findViewById(R.id.currentTemp);
+        minTempTV = findViewById(R.id.minTemp);
+        maxTempTV = findViewById(R.id.maxTemp);
         uvTV = findViewById(R.id.uvRating);
 
-        weatherPB = findViewById(R.id.weatherProgress);
+        weatherPB = findViewById(R.id.status);
         weatherPB.setVisibility(View.VISIBLE);
 
     }

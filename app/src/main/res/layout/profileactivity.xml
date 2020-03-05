@@ -92,7 +92,7 @@
         android:id="@+id/profile_goToWeatherButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonChat"
+        android:layout_below="@id/EnterYourName"
         android:text="@string/goToWeatherButtonText" />
 
 
